@@ -14,13 +14,16 @@ const io=socketio(server);
 app.set("view engine","ejs");
 
 // serve static files
-app.set(express.static(path.join(__dirname,"public")));
+app.use(express.static(path.join(__dirname,"public")));
 
 io.on("connection",function(socket){
+    console.log("User connected:", socket.id);
     socket.on("send-location",(data)=>{
+         console.log("Location received:", data);
         io.emit("receive-location",{id:socket.id,...data});
     });
     socket.on("disconnect",function(){
+        console.log("User disconnected:", socket.id);
         io.emit("user-disconnected",socket.id);
     })
 });
