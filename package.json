@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js"
   },
   "keywords": [],
   "author": "",
@@ -14,8 +15,9 @@
     "ejs": "^4.0.1",
     "express": "^5.2.1",
     "leaflet": "^1.9.4",
-    "nodemon": "^3.1.14",
-    "socket.io": "^4.8.3",
-    "socketio": "^1.0.0"
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
