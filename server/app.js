@@ -9,7 +9,12 @@ const socketio=require("socket.io");
 const server=http.createServer(app);
 
 // call socket io
-const io=socketio(server);
+const io = socketio(server, {
+    cors: {
+        origin: "*",
+        methods: ["GET", "POST"]
+    }
+});
 
 app.set("view engine","ejs");
 
